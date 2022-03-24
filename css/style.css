@@ -1,0 +1,106 @@
+/*
+ * Login: xkalis03
+ *
+ * Doplnte sve reseni.
+ *
+ * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+ * a pro netrivialni useky kodu (napr. bubliny v sekci #refs)
+**/
+
+/**********
+* GENERAL *
+**********/
+
+body {
+    background-color: #ffffff;
+    min-width: 768px;
+    max-width: 1200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.7;
+    font-family: 'PT Sans';
+}
+
+section {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+/* hyperlinks */
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 16px; /* ??? */
+}
+
+/*********
+* HEADER *
+*********/
+
+/* NOTE: a class name should not consist of words separated by space (e.g. as in this example, 
+"fas fa-bomb") as it actually references two different classes, "fas" and "fa-bomb" */
+div#logo {
+    color: steelblue;
+    text-align: left;
+    font-size: 25px;
+    font-family: 'Special Elite';
+}
+
+div#contacts {
+    text-align: right;
+    float: right;
+    color: #4d4d4d;
+}
+
+div#networks {
+    float: right;
+    color: steelblue;
+}
+
+nav#navigation {
+    font-size: 13px;
+    /*margin: ;*/
+    color: #bfbfbf;
+}
+
+nav#navigation ul {
+    list-style-type: none;
+}
+
+.fa-bomb {
+    width: 100px;
+    height: 20px;
+    color: steelblue;
+    text-align: left;
+}
+
+#header-menu span + span {
+    margin-left: 10px;
+}
+
+#header {
+    display: block;
+    margin-top: 10px;
+    min-height: 400px;
+    height: 100vh;
+    background-image: url(../img/header.jpg);
+}
+ 
+header#header div#header-menu  {
+    text-align: left;
+}
