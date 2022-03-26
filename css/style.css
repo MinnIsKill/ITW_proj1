@@ -569,14 +569,20 @@ section#refs blockquote {
     padding: 20px;
     color: white;
 }
+section#refs blockquote:hover {
+    background-color: steelblue;
+}
 
 section#refs h3 {
     float: left;
     font-size: 18px;
     margin-left: 20px;
     margin-top: 30px;
-    color:#bfbfbf;
+    color: #bfbfbf;
     font-weight: lighter;
+}
+section#refs blockquote:hover h3 {
+    color: steelblue;
 }
 
 /** speech bubble arrows **/
@@ -586,16 +592,18 @@ section#refs .refs-card:nth-child(1) blockquote:after {
     top: 40.7%;
     left: 20%;
     border: 10px solid;
-    border-color: #4d4d4d white white #4d4d4d;
+    border-color: #4d4d4d transparent transparent #4d4d4d;
 }
-
 section#refs .refs-card:nth-child(2) blockquote:after {
     content: " ";
     position: absolute;
     top: 53.7%;
     left: 20%;
     border: 10px solid;
-    border-color: #4d4d4d white white #4d4d4d;
+    border-color: #4d4d4d transparent transparent #4d4d4d;
+}
+section#refs .refs-card blockquote:hover:after {
+    border-color: steelblue transparent transparent steelblue;
 }
 
 /** speech bubble quotes **/
@@ -618,6 +626,9 @@ section#refs .refs-card:nth-child(2) blockquote:before {
     margin-top: -40px;
     margin-left: -20px;
     margin-right: 10px;
+}
+section#refs .refs-card blockquote:hover:before {
+    color: white;
 }
 
 /**********
