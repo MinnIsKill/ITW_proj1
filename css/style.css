@@ -13,10 +13,10 @@
 
 body {
     background-color: #ffffff;
+    width: 100vw;
     min-width: 768px;
     max-width: 1200px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 auto;
     line-height: 1.7;
     font-family: 'PT Sans';
 }
@@ -52,41 +52,95 @@ h4 {
 * HEADER *
 *********/
 
-/* NOTE: a class name should not consist of words separated by space (e.g. as in this example, 
-"fas fa-bomb") as it actually references two different classes, "fas" and "fa-bomb" */
 div#logo {
     color: steelblue;
     text-align: left;
     font-size: 25px;
     font-family: 'Special Elite';
 }
+div#logo a:hover {
+    color: white;
+}
 
 div#contacts {
+    top:0;
+    position:absolute;
+    right:0;
+    padding: 15px 15px 5px 15px; /* top right bottom left */
     text-align: right;
-    float: right;
     color: #4d4d4d;
+    clear: left;
+}
+
+div#contacts span#mail a:hover {
+    color: white;
+}
+
+div#contacts i {
+    color: steelblue;
+    padding-right: 5px;
+    size: 100px;
 }
 
 div#networks {
     float: right;
+    height: 20px;
+    padding: 25px 15px 5px 15px; /* top right bottom left */
+    border: 1px;
     color: steelblue;
+    clear: left;
+}
+
+div#networks i {
+    transform: scale(2.0);
+    width: 30px;
+    height: 20px;
+    color: steelblue;
+}
+
+div#networks i:hover {
+    color: white;
 }
 
 nav#navigation {
     font-size: 13px;
-    /*margin: ;*/
+    letter-spacing: 0.05em;
+    padding: 0px 15px 5px 15px; /* top right bottom left */
+    border: 1px;
+    text-transform: uppercase;
     color: #bfbfbf;
 }
 
 nav#navigation ul {
     list-style-type: none;
+    overflow: hidden;
 }
 
+nav#navigation li {
+    display: block;
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid;
+    border-color: transparent;
+    transition: border-color 0.5s linear;
+}
+nav#navigation li:hover {
+    border-color: white;
+}
+
+nav#navigation li:nth-child(1) {
+    margin-left: -40px;
+}
+
+/* NOTE: a class name should not consist of words separated by space (e.g. as in this example, 
+"fas fa-bomb") as it actually references two different classes, "fas" and "fa-bomb" */
 .fa-bomb {
-    width: 100px;
+    width: 20px;
     height: 20px;
     color: steelblue;
     text-align: left;
+    padding: 10px;
 }
 
 #header-menu span + span {
@@ -95,12 +149,489 @@ nav#navigation ul {
 
 #header {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 10px;
     min-height: 400px;
     height: 100vh;
     background-image: url(../img/header.jpg);
+    background-size: cover;
 }
  
 header#header div#header-menu  {
     text-align: left;
+    position: relative;
+}
+
+#header-title {
+    position: relative;
+    top: 33vh;
+    height: 100vh;
+    font-size: 64px;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#header-title div#get-started {
+    font-size: 16px;
+    display: table-cell;
+    vertical-align: center;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 15px;
+    color: white;
+}
+
+#header-title div#get-started:hover {
+    background-color: steelblue;
+    transition: .5s;
+}
+
+/***********
+* SERVICES *
+***********/
+
+section#services .content {
+    text-align: center;
+}
+
+section#services .content h2 {
+    text-transform: uppercase;
+}
+section#services .content h3 {
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+section#services .content p {
+    color: #898989;
+}
+
+section#services .content div:first-of-type {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    grid-template-columns: 50% 50%;
+    width: 640px;
+    grid-gap: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** the columns **/
+section#services .content .services-column:nth-child(odd) {
+    display: block;
+    width: 300px;
+    margin-left: -10px;
+    align-content: center;
+    float: left;
+}
+section#services .content .services-column:nth-child(even) {
+    display: block;
+    width: 300px;
+    float: right;
+}
+
+/** the cards **/
+section#services .content .services-card:nth-child(odd) {
+    display: block;
+    width: 300px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    align-content: center;
+    float: left;
+    border: 1px transparent;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 5px #bfbfbf;
+}
+
+section#services .content .services-card:nth-child(even) {
+    display: block;
+    width: 300px;
+    float: right;
+    border: 1px solid;
+    box-shadow: 0px 0px 10px 5px #bfbfbf;
+}
+
+/** the small icons in the cards **/
+section#services .content .services-card div:first-of-type {
+    display: block;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+section#services .content .services-card img {
+    position: absolute;
+    display: block;
+    margin-left: 125px;
+    margin-right: 125px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+    border-color: steelblue;
+    border-radius: 5px;
+}
+
+section#services .content .services-card img:nth-child(1) {
+    opacity: 100%;
+}
+section#services .content .services-card img:nth-child(2) {
+    opacity: 0%;
+}
+
+section#services .content .services-card:hover img:nth-child(1) {
+    opacity: 0%;
+}
+section#services .content .services-card:hover img:nth-child(2) {
+    opacity: 100%;
+    background-color: steelblue;
+}
+section#services .content .services-card:hover {
+    box-shadow: 0px 0px 10px 5px steelblue;
+}
+
+section#services .content .services-column div {
+    display: block;
+}
+
+/********
+* ABOUT *
+********/
+
+section#about p {
+    color: #898989;
+}
+
+section#about img {
+    border-radius: 5px;
+    border: 1px transparent;
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.about-item:nth-child(odd) img:hover {
+    transform: scale(1.1);
+    transform-origin:top left;
+    margin-right: 96px;
+    margin-bottom: 48px;
+    transition: margin-right .5s linear;
+    transition: margin-bottom .5s linear;
+    transition: .5s;
+}
+.about-item:nth-child(even) img:hover {
+    transform: scale(1.1);
+    transform-origin:top right;
+    margin-left: 96px;
+    margin-bottom: 48px;
+    transition: margin-left .5s linear;
+    transition: margin-bottom .5s linear;
+    transition: .5s;
+}
+
+.about-item:nth-child(odd) img {
+    float: left;
+    margin-right: 80px;
+    margin-bottom: 40px;
+}
+.about-item:nth-child(even) img {
+    float: right;
+    max-height: auto;
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
+
+/*******
+* TEAM *
+*******/
+
+section#team {
+    text-align: center;
+}
+
+section#team h2 {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+section#team .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section#team .content .team-card {
+    overflow: auto;
+    min-width: 200px;
+    max-width: 23.5%;
+    max-height: 100%;
+    margin: 5px;
+    border: 1px transparent;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 5px #bfbfbf;
+}
+
+section#team .content .team-card:hover {
+    box-shadow: 0px 0px 10px 5px steelblue;
+}
+
+section#team .content .team-card img {
+    object-fit: cover;
+    max-width: 282px;
+}
+
+section#team .content .team-card h3 {
+    margin-top: 20px;
+}
+
+section#team .content .team-card:hover h3 {
+    color: steelblue;
+}
+
+section#team .content .team-card h4 {
+    margin-top: -20px;
+    color: #898989;
+}
+
+section#team .content .team-card p {
+    margin-top: -20px;
+    color: #898989;
+}
+
+/********
+* STATS *
+********/
+
+/** dashed line **/
+section#stats .content:after{
+    content: '';
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    display: inline-block;
+    background-color: transparent;
+    border-top: 1px dashed;
+    border-color: black;
+}
+
+section#stats .content {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    background-color: white;
+}
+
+section#stats .content .stats-card {
+    max-width: 300px;
+    width: 30%;
+    margin: 60px 20px 20px 20px;
+    border: 1px transparent;
+    border-radius: 5px;
+    background-color: #4d4d4d;
+}
+
+section#stats .content .stats-card:hover {
+    background-color: steelblue;
+}
+
+section#stats .content .stats-card i {
+    overflow: auto;
+    font-size: 32px;
+    color: steelblue;
+    background-color: white;
+    padding: 10px;
+    border: 10px;
+    border-radius: 100px;
+    position: relative;
+    top: -20px;
+}
+
+section#stats .content .stats-card h3 {
+    margin-top: -10px;
+}
+
+section#stats .content .stats-card p {
+    margin-top: -20px;
+    color: #898989;
+}
+
+/********
+* PRICE *
+********/
+
+section#price .content {
+    text-align: center;
+}
+
+section#price .content table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+section#price table thead th {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+section#price table tbody tr {
+    color: #898989;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;
+    border-color: steelblue;
+}
+
+section#price table tbody tr:hover {
+    color: steelblue;
+    transition: color .5s linear;
+}
+
+/** apply to all columns except the second **/
+section#price table tbody td:not(:nth-child(2)) {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/** apply to the first list item in every list found inside the table **/
+section#price table tbody li:nth-child(1) {
+    list-style-type: none;
+    margin-left: -20px;
+    color: #898989;
+    font-weight: bold;
+}
+section#price table tbody tr:hover li:nth-child(1) {
+    color: steelblue;
+    transition: color .1s linear;
+}
+
+section#price table tbody button {
+    background-color: white;
+    border: 1px solid;
+    border-color: steelblue;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+section#price table tbody button:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+/*******
+* REFS *
+*******/
+
+section#refs .content {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+section#refs .content .refs-card {
+    position: relative;
+    width: 40%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/** img **/
+section#refs .content .refs-card img {
+    float: left;
+    margin-top: 15px;
+    margin-left: -30px;
+    border-radius: 100px;
+    align-self: left;
+    width: 60px;
+    height: 60px;
+}
+
+/** speech bubble **/
+section#refs blockquote {
+    border: 1px solid;
+    border-radius: 7px;
+    background-color: #4d4d4d;
+    padding: 20px;
+    color: white;
+}
+
+section#refs h3 {
+    float: left;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 30px;
+    color:#bfbfbf;
+    font-weight: lighter;
+}
+
+/** speech bubble arrows **/
+section#refs .refs-card:nth-child(1) blockquote:after {
+    content: " ";
+    position: absolute;
+    top: 40.7%;
+    left: 20%;
+    border: 10px solid;
+    border-color: #4d4d4d white white #4d4d4d;
+}
+
+section#refs .refs-card:nth-child(2) blockquote:after {
+    content: " ";
+    position: absolute;
+    top: 53.7%;
+    left: 20%;
+    border: 10px solid;
+    border-color: #4d4d4d white white #4d4d4d;
+}
+
+/** speech bubble quotes **/
+section#refs .refs-card:nth-child(1) blockquote:before {
+    content: "\"";
+    font-style: italic;
+    font-size: 100px;
+    float: left;
+    color: steelblue;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-right: 10px;
+}
+section#refs .refs-card:nth-child(2) blockquote:before {
+    content: "\"";
+    font-style: italic;
+    font-size: 100px;
+    float: left;
+    color: steelblue;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-right: 10px;
+}
+
+/**********
+* CONTACT *
+**********/
+
+/** dashed line **/
+section#contact .content:before{
+    content: '';
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    display: inline-block;
+    background-color: transparent;
+    border-top: 1px dashed;
+    border-color: black;
 }
