@@ -1,37 +1,41 @@
 /*
+ * Project #1 for ITW @ VUTBR FIT
+ *
  * Login: xkalis03
- *
- * Doplnte sve reseni.
- *
- * Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
- * a pro netrivialni useky kodu (napr. bubliny v sekci #refs)
-**/
+*/
 
-/**********
-* GENERAL *
-**********/
 
+
+/*******************************************************************************
+*                                   GENERAL                                    *
+********************************************************************************
+ * setting the size and alignment of body
+ * setting the base document font
+ * styling base elements (headers and hyperlinks)
+*******************************************************************************/
+
+/** body **/
 body {
     background-color: #ffffff;
-    width: 100vw;
-    min-width: 768px;
-    max-width: 1200px;
-    margin: 0 auto;
-    line-height: 1.7;
-    font-family: 'PT Sans';
+    width: 100vw; /* stretch body over whole viewport */
+    min-width: 768px; /* set min width of body */
+    max-width: 1200px; /* set max width of body */
+    margin: 0 auto;  /* center body */
+    line-height: 1.7; /* height of text lines */
+    font-family: 'PT Sans'; /* font type of text */
 }
-
-section {
+section { /* set top and right margins for all sections (space between them) */
     margin-top: 60px;
     margin-bottom: 80px;
 }
 
-/* hyperlinks */
+/** hyperlinks **/
 a {
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
 }
 
+/** headers **/
 h1 {
     font-size: 40px;
 }
@@ -45,43 +49,93 @@ h3 {
 }
 
 h4 {
-    font-size: 16px; /* ??? */
+    font-size: 16px;
 }
 
-/*********
-* HEADER *
-*********/
+/*******************************************************************************
+*                                    HEADER                                    *
+*******************************************************************************/
 
+/** general **/
+#header {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* margins left and right set to auto basically center element */
+    margin-top: 10px;
+    min-height: 400px;
+    height: 100vh;
+    background-image: url(../img/header.jpg); /* load image as background */
+    background-size: cover; /* image will scale up or down (zoom) to cover parent div */
+}
+
+/** header menu **/
+#header-menu span + span { /* span + span = every span to the right of another span */
+    margin-left: 10px;
+}
+ 
+header#header div#header-menu  {
+    text-align: left;
+    position: relative; /* position element relative to parent element */
+}
+
+#header-title {
+    position: relative; /* position element relative to parent element */
+    top: 33vh; /* vh = view height */
+    height: 100vh;
+    font-size: 64px;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+/** header button **/
+#header-title div#get-started {
+    font-size: 16px;
+    display: table-cell;
+    vertical-align: center;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 15px; /* set border corner 'smoothness' */
+    color: white;
+}
+
+#header-title div#get-started:hover { /* header button hover handling */
+    background-color: steelblue;
+    transition: .5s;
+}
+
+/** logo **/
 div#logo {
     color: steelblue;
     text-align: left;
     font-size: 25px;
     font-family: 'Special Elite';
 }
-div#logo a:hover {
+div#logo a:hover { /* logo hover handling */
     color: white;
 }
 
+/** contacts **/
 div#contacts {
-    top:0;
-    position:absolute;
-    right:0;
+    position: absolute; /* set element to absolute so it can be aligned freely */
+    top: 0;
+    right: 0; /* put in top right corner */
     padding: 15px 15px 5px 15px; /* top right bottom left */
     text-align: right;
     color: #4d4d4d;
     clear: left;
 }
-
-div#contacts span#mail a:hover {
+div#contacts span#mail a:hover { /* e-mail hover handling */
     color: white;
 }
-
-div#contacts i {
+div#contacts i { /** contacts images **/
     color: steelblue;
     padding-right: 5px;
     size: 100px;
 }
 
+/** networks **/
 div#networks {
     float: right;
     height: 20px;
@@ -90,51 +144,49 @@ div#networks {
     color: steelblue;
     clear: left;
 }
-
-div#networks i {
-    transform: scale(2.0);
+div#networks i { /** networks images **/
+    transform: scale(2.0); /* set size */
     width: 30px;
     height: 20px;
     color: steelblue;
 }
-
-div#networks i:hover {
+div#networks i:hover { /* networks images hover handling */
     color: white;
 }
 
+/** navigation **/
 nav#navigation {
     font-size: 13px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05em; /* set space in between letters */
     padding: 0px 15px 5px 15px; /* top right bottom left */
     border: 1px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* transform all letters into uppercase */
     color: #bfbfbf;
 }
-
-nav#navigation ul {
-    list-style-type: none;
-    overflow: hidden;
+nav#navigation ul { /* navigation list */
+    list-style-type: none; /* remove bullets */
+    overflow: hidden; /* hide whatever overflows contraints */
 }
-
-nav#navigation li {
-    display: block;
+nav#navigation li { /* navigation list items */
+    display: block; /* set each item to be a block (for better handling) */
     float: left;
     padding: 10px;
     text-decoration: none;
     border: 1px solid;
     border-color: transparent;
-    transition: border-color 0.5s linear;
+    transition: border-color 0.5s linear; /* for hover animation transition */
 }
-nav#navigation li:hover {
-    border-color: white;
+nav#navigation li:hover { /* navigation list items hover handling */
+    border-color: white; /* animate border fade (more in transition rule above) */
+}
+nav#navigation li:nth-child(1) { /* first item in list */
+    margin-left: -40px; /* move it more to the left */
 }
 
-nav#navigation li:nth-child(1) {
-    margin-left: -40px;
-}
-
-/* NOTE: a class name should not consist of words separated by space (e.g. as in this example, 
-"fas fa-bomb") as it actually references two different classes, "fas" and "fa-bomb" */
+/** the little bomb icon in the upper left corner of header
+NOTE: a class name should not consist of words separated by space (e.g. as 
+in this example, "fas fa-bomb") as it actually references two different classes,
+"fas" and "fa-bomb" */
 .fa-bomb {
     width: 20px;
     height: 20px;
@@ -143,60 +195,19 @@ nav#navigation li:nth-child(1) {
     padding: 10px;
 }
 
-#header-menu span + span {
-    margin-left: 10px;
-}
+/*******************************************************************************
+*                                   SERVICES                                   *
+*******************************************************************************/
 
-#header {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    min-height: 400px;
-    height: 100vh;
-    background-image: url(../img/header.jpg);
-    background-size: cover;
-}
- 
-header#header div#header-menu  {
-    text-align: left;
-    position: relative;
-}
-
-#header-title {
-    position: relative;
-    top: 33vh;
-    height: 100vh;
-    font-size: 64px;
-    color: white;
-    margin-bottom: 20px;
-    margin-left: 20px;
-}
-
-#header-title div#get-started {
-    font-size: 16px;
-    display: table-cell;
-    vertical-align: center;
-    text-align: center;
-    padding: 20px;
-    border: 2px solid;
-    border-radius: 15px;
-    color: white;
-}
-
-#header-title div#get-started:hover {
-    background-color: steelblue;
-    transition: .5s;
-}
-
-/***********
-* SERVICES *
-***********/
-
+/** general **/
 section#services .content {
     text-align: center;
 }
+section#services .content .services-column div {
+    display: block;
+}
 
+/** headers & text **/
 section#services .content h2 {
     text-transform: uppercase;
 }
@@ -208,11 +219,12 @@ section#services .content p {
     color: #898989;
 }
 
-section#services .content div:first-of-type {
+/** choose the whole empty div (div without an id) **/
+section#services .content div:first-of-type { /* div:first-of-type = first div found */
     display: grid;
     justify-content: center;
     align-items: center;
-    word-break: break-all;
+    word-break: break-all; /* line breaks always */
     grid-template-columns: 50% 50%;
     width: 640px;
     grid-gap: 40px;
@@ -221,14 +233,14 @@ section#services .content div:first-of-type {
 }
 
 /** the columns **/
-section#services .content .services-column:nth-child(odd) {
+section#services .content .services-column:nth-child(odd) { /* :nth-child(odd) = all odd items */
     display: block;
     width: 300px;
     margin-left: -10px;
     align-content: center;
     float: left;
 }
-section#services .content .services-column:nth-child(even) {
+section#services .content .services-column:nth-child(even) { /* :nth-child(even) = all even items */
     display: block;
     width: 300px;
     float: right;
@@ -245,19 +257,21 @@ section#services .content .services-card:nth-child(odd) {
     float: left;
     border: 1px transparent;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 5px #bfbfbf;
+    box-shadow: 0px 0px 10px 5px #bfbfbf; /* set the shadow behind the cards */
 }
-
 section#services .content .services-card:nth-child(even) {
     display: block;
     width: 300px;
     float: right;
     border: 1px solid;
-    box-shadow: 0px 0px 10px 5px #bfbfbf;
+    box-shadow: 0px 0px 10px 5px #bfbfbf; /* set the shadow behind the cards */
+}
+section#services .content .services-card:hover { /* when hovering over a card, change shadow color */
+    box-shadow: 0px 0px 10px 5px steelblue;
 }
 
 /** the small icons in the cards **/
-section#services .content .services-card div:first-of-type {
+section#services .content .services-card div:first-of-type { /* first div inside services-card class contains the images */
     display: block;
     width: 300px;
     height: 50px;
@@ -265,6 +279,7 @@ section#services .content .services-card div:first-of-type {
     padding-top: 10px;
 }
 
+/* icon images */
 section#services .content .services-card img {
     position: absolute;
     display: block;
@@ -278,6 +293,7 @@ section#services .content .services-card img {
     border-radius: 5px;
 }
 
+/* when not hovering overcard, display one image and hide the other */
 section#services .content .services-card img:nth-child(1) {
     opacity: 100%;
 }
@@ -285,6 +301,7 @@ section#services .content .services-card img:nth-child(2) {
     opacity: 0%;
 }
 
+/* when hovering overcard, hide one image and display the other */
 section#services .content .services-card:hover img:nth-child(1) {
     opacity: 0%;
 }
@@ -292,99 +309,74 @@ section#services .content .services-card:hover img:nth-child(2) {
     opacity: 100%;
     background-color: steelblue;
 }
-section#services .content .services-card:hover {
-    box-shadow: 0px 0px 10px 5px steelblue;
-}
 
-section#services .content .services-column div {
-    display: block;
-}
+/*******************************************************************************
+*                                     ABOUT                                    *
+*******************************************************************************/
 
-/********
-* ABOUT *
-********/
-
+/** text **/
 section#about p {
     color: #898989;
 }
 
+/** images **/
 section#about img {
     border-radius: 5px;
-    border: 1px transparent;
+    border: 1px transparent; /* set border 'smoothness' but don't display the actual border */
     max-width: 40%;
     max-height: 40%;
 }
 
-.about-item:nth-child(odd) img:hover {
-    transform: scale(1.1);
-    transform-origin:top left;
+/** image hover animation handling **/
+.about-item:nth-child(odd) img:hover { /* every odd image, on hover */
+    transform: scale(1.1); /* scale up image */
+    transform-origin: top left; /* from top left of the image to bottom right */
     margin-right: 96px;
     margin-bottom: 48px;
-    transition: margin-right .5s linear;
-    transition: margin-bottom .5s linear;
-    transition: .5s;
+    transition: margin-right .5s linear; /* linearly change the attribute */
+    transition: margin-bottom .5s linear; /* linearly change the attribute */
+    transition: .5s; /* linearly change the scaling */
 }
-.about-item:nth-child(even) img:hover {
-    transform: scale(1.1);
-    transform-origin:top right;
+.about-item:nth-child(even) img:hover { /* every even image, on hover */
+    transform: scale(1.1); /* scale up image */
+    transform-origin:top right; /* from top right of the image to bottom left */
     margin-left: 96px;
     margin-bottom: 48px;
-    transition: margin-left .5s linear;
-    transition: margin-bottom .5s linear;
-    transition: .5s;
+    transition: margin-left .5s linear; /* linearly change the attribute */
+    transition: margin-bottom .5s linear; /* linearly change the attribute */
+    transition: .5s; /* linearly change the scaling */
 }
 
-.about-item:nth-child(odd) img {
+/** image positioning **/
+.about-item:nth-child(odd) img { /* every odd image */
     float: left;
     margin-right: 80px;
     margin-bottom: 40px;
 }
-.about-item:nth-child(even) img {
+.about-item:nth-child(even) img { /* every even image */
     float: right;
     max-height: auto;
     margin-left: 80px;
     margin-bottom: 40px;
 }
 
-/*******
-* TEAM *
-*******/
+/*******************************************************************************
+*                                     TEAM                                     *
+*******************************************************************************/
 
+/** general **/
 section#team {
     text-align: center;
 }
-
 section#team h2 {
     width: 100%;
     text-transform: uppercase;
 }
-
 section#team .content {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* display as flexbox */
+    flex-wrap: wrap; /* multiline flex */
     justify-content: space-between;
 }
-
-section#team .content .team-card {
-    overflow: auto;
-    min-width: 200px;
-    max-width: 23.5%;
-    max-height: 100%;
-    margin: 5px;
-    border: 1px transparent;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 5px #bfbfbf;
-}
-
-section#team .content .team-card:hover {
-    box-shadow: 0px 0px 10px 5px steelblue;
-}
-
-section#team .content .team-card img {
-    object-fit: cover;
-    max-width: 282px;
-}
-
 section#team .content .team-card h3 {
     margin-top: 20px;
 }
@@ -394,31 +386,51 @@ section#team .content .team-card:hover h3 {
 }
 
 section#team .content .team-card h4 {
-    margin-top: -20px;
+    margin-top: -20px; /* lower the space between card elements */
     color: #898989;
 }
 
 section#team .content .team-card p {
-    margin-top: -20px;
+    margin-top: -20px; /* lower the space between card elements */
     color: #898989;
 }
 
-/********
-* STATS *
-********/
+/** team cards **/
+section#team .content .team-card {
+    overflow: auto; /* handle what overflows */
+    min-width: 200px;
+    max-width: 23.5%;
+    max-height: 100%;
+    margin: 5px;
+    border: 1px transparent;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 5px #bfbfbf;
+}
+section#team .content .team-card:hover { /* on hover, change card shadow color */
+    box-shadow: 0px 0px 10px 5px steelblue;
+}
+section#team .content .team-card img {
+    object-fit: cover; /* cover div with image */
+    max-width: 282px; /* = the 23.5% in .team-card above */
+}
+
+/*******************************************************************************
+*                                     STATS                                    *
+*******************************************************************************/
 
 /** dashed line **/
-section#stats .content:after{
-    content: '';
-    position: absolute;
-    width: 100vw;
-    left: 0;
+section#stats .content:after { /* for some reason didn't work with :before */
+    content: ''; /* no content */
+    position: absolute; /* set position to absolute for easier positioning */
+    width: 100vw; /* set width to whole viewport */
+    left: 0; /* move all the way to the left */
     display: inline-block;
     background-color: transparent;
-    border-top: 1px dashed;
+    border-top: 1px dashed; /* this will be the dashed line */
     border-color: black;
 }
 
+/** general **/
 section#stats .content {
     display: flex;
     flex-shrink: 0;
@@ -428,7 +440,15 @@ section#stats .content {
     text-align: center;
     background-color: white;
 }
+section#stats .content .stats-card h3 {
+    margin-top: -10px;
+}
+section#stats .content .stats-card p {
+    margin-top: -20px;
+    color: #898989;
+}
 
+/** stats cards (the ones with mini circle icons on top) */
 section#stats .content .stats-card {
     max-width: 300px;
     width: 30%;
@@ -437,53 +457,48 @@ section#stats .content .stats-card {
     border-radius: 5px;
     background-color: #4d4d4d;
 }
-
-section#stats .content .stats-card:hover {
+section#stats .content .stats-card:hover { /* stats cards hover handling */
     background-color: steelblue;
 }
 
+/** the images hovering at the top **/
 section#stats .content .stats-card i {
-    overflow: auto;
+    overflow: auto; /* display whatever overflows out of the card */
     font-size: 32px;
     color: steelblue;
     background-color: white;
     padding: 10px;
     border: 10px;
     border-radius: 100px;
-    position: relative;
+    position: relative; /* position relative to the card */
     top: -20px;
 }
 
-section#stats .content .stats-card h3 {
-    margin-top: -10px;
-}
+/*******************************************************************************
+*                                     PRICE                                    *
+*******************************************************************************/
 
-section#stats .content .stats-card p {
-    margin-top: -20px;
-    color: #898989;
-}
-
-/********
-* PRICE *
-********/
-
+/** general **/
 section#price .content {
     text-align: center;
 }
 
+/** table **/
 section#price .content table {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    border-collapse: collapse;
+    border-collapse: collapse; /* borders are collapsed into a single border when possible */
     width: 80%;
 }
 
+/* style table head */
 section#price table thead th {
     padding: 20px;
     margin-bottom: 20px;
 }
 
+/* style table body row */
 section#price table tbody tr {
     color: #898989;
     padding: 20px;
@@ -492,30 +507,30 @@ section#price table tbody tr {
     border-bottom: 1px dotted;
     border-color: steelblue;
 }
-
-section#price table tbody tr:hover {
+section#price table tbody tr:hover { /* change text color on hover */
     color: steelblue;
-    transition: color .5s linear;
+    transition: color .5s linear; /* change color linearly (animation) */
 }
 
-/** apply to all columns except the second **/
-section#price table tbody td:not(:nth-child(2)) {
+/* style table columns */
+section#price table tbody td:not(:nth-child(2)) { /* apply to all columns except the second */
     padding: 20px;
     margin-bottom: 20px;
 }
 
-/** apply to the first list item in every list found inside the table **/
-section#price table tbody li:nth-child(1) {
+/* style table items */
+section#price table tbody li:nth-child(1) { /* apply to the first list item in every list found inside the table */
     list-style-type: none;
     margin-left: -20px;
     color: #898989;
     font-weight: bold;
 }
-section#price table tbody tr:hover li:nth-child(1) {
+section#price table tbody tr:hover li:nth-child(1) { /* hover handling */
     color: steelblue;
     transition: color .1s linear;
 }
 
+/* table button */
 section#price table tbody button {
     background-color: white;
     border: 1px solid;
@@ -523,16 +538,16 @@ section#price table tbody button {
     border-radius: 5px;
     padding: 20px;
 }
-
-section#price table tbody button:hover {
+section#price table tbody button:hover { /* table button hover handling */
     background-color: steelblue;
     color: white;
 }
 
-/*******
-* REFS *
-*******/
+/*******************************************************************************
+*                                     REFS                                     *
+*******************************************************************************/
 
+/** general **/
 section#refs .content {
     display: flex;
     flex-shrink: 0;
@@ -540,7 +555,19 @@ section#refs .content {
     justify-content: space-between;
     text-align: center;
 }
+section#refs h3 {
+    float: left;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 30px;
+    color: #bfbfbf;
+    font-weight: lighter;
+}
+section#refs blockquote:hover h3 { /* change name color on hover */
+    color: steelblue;
+}
 
+/** the whole cards **/
 section#refs .content .refs-card {
     position: relative;
     width: 40%;
@@ -550,7 +577,7 @@ section#refs .content .refs-card {
     text-align: left;
 }
 
-/** img **/
+/** avatars **/
 section#refs .content .refs-card img {
     float: left;
     margin-top: 15px;
@@ -569,48 +596,41 @@ section#refs blockquote {
     padding: 20px;
     color: white;
 }
-section#refs blockquote:hover {
+section#refs blockquote:hover { /* change speech bubble color on hover */
     background-color: steelblue;
 }
 
-section#refs h3 {
-    float: left;
-    font-size: 18px;
-    margin-left: 20px;
-    margin-top: 30px;
-    color: #bfbfbf;
-    font-weight: lighter;
-}
-section#refs blockquote:hover h3 {
-    color: steelblue;
-}
-
 /** speech bubble arrows **/
+/* inspiration: https://codingislove.com/css-speech-bubbles/ 
+   basically, create a square using borders, set half of it transparent diagonal-wise,
+   you'll end up with a nice triangle. Set its position to absolute and position it
+   below the speech bubbles (each triangle individually)
+*/
 section#refs .refs-card:nth-child(1) blockquote:after {
     content: " ";
     position: absolute;
-    top: 40.7%;
+    top: 40.7%; /* yeah, just kept on guessing this (magical constant) */
     left: 20%;
     border: 10px solid;
-    border-color: #4d4d4d transparent transparent #4d4d4d;
+    border-color: #4d4d4d transparent transparent #4d4d4d; /* create the 'arrow' */
 }
 section#refs .refs-card:nth-child(2) blockquote:after {
     content: " ";
     position: absolute;
-    top: 53.7%;
+    top: 53.7%; /* yeah, just kept on guessing this (magical constant) */
     left: 20%;
     border: 10px solid;
-    border-color: #4d4d4d transparent transparent #4d4d4d;
+    border-color: #4d4d4d transparent transparent #4d4d4d; /* create the 'arrow' */
 }
-section#refs .refs-card blockquote:hover:after {
+section#refs .refs-card blockquote:hover:after { /* speech bubble hover handling */
     border-color: steelblue transparent transparent steelblue;
 }
 
 /** speech bubble quotes **/
 section#refs .refs-card:nth-child(1) blockquote:before {
-    content: "\"";
-    font-style: italic;
-    font-size: 100px;
+    content: "\""; /* display the quote */
+    font-style: italic; /* in italic */
+    font-size: 100px; /* set the size, positioning follows */
     float: left;
     color: steelblue;
     margin-top: -40px;
@@ -618,31 +638,153 @@ section#refs .refs-card:nth-child(1) blockquote:before {
     margin-right: 10px;
 }
 section#refs .refs-card:nth-child(2) blockquote:before {
-    content: "\"";
-    font-style: italic;
-    font-size: 100px;
+    content: "\""; /* display the quote */
+    font-style: italic; /* in italic */
+    font-size: 100px; /* set the size, positioning follows */
     float: left;
     color: steelblue;
     margin-top: -40px;
     margin-left: -20px;
     margin-right: 10px;
 }
-section#refs .refs-card blockquote:hover:before {
+section#refs .refs-card blockquote:hover:before { /* quote hover handling */
     color: white;
 }
 
-/**********
-* CONTACT *
-**********/
+/*******************************************************************************
+*                                   CONTACT                                    *
+*******************************************************************************/
 
 /** dashed line **/
-section#contact .content:before{
-    content: '';
-    position: absolute;
-    width: 100vw;
-    left: 0;
+section#contact .content:before {
+    content: ''; /* no content */
+    position: absolute; /* set position to absolute for easier positioning */
+    width: 100vw; /* set width to whole viewport */
+    left: 0; /* move all the way to the left */
     display: inline-block;
     background-color: transparent;
-    border-top: 1px dashed;
+    border-top: 1px dashed; /* this is the dashed line */
     border-color: black;
+}
+
+/** general **/
+section#contact .content {
+    display: grid; /* set grid on whole section */
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* gap between columns */
+    margin: auto;
+    justify-content: center;
+    max-width: 1200px;
+}
+section#contact h2 { /* stretch heading over entire row */
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+/** map (magic) **/
+div#map {
+    grid-column-start: 1;
+    grid-column-end: 3; /* place map over left half of grid (column 1-2) */
+    height: 400px;
+    width: 98%;
+}
+
+/** form **/
+form {
+    grid-column-start: 3;
+    grid-column-end: 5; /* place map over right half of grid (column 3-4) */
+    width: 98%;
+    display: grid; /* create another grid inside the form */
+    color: steelblue;
+    grid-auto-flow: row; /* in not specified otherwise, place new items to new rows */
+    grid-gap: 20px;
+    padding: 10px;
+}
+form > label  {
+    grid-row: auto; /* shorthand for grid-row-start and grid-row-end */
+}
+
+/* style form areas */
+form > input, form > textarea {
+    color: steelblue;
+    grid-column-start: 1;
+    grid-column-end: 3; /* place anything over the entire length of row */
+    grid-row: auto;
+    border: 1px solid;
+    border-color: steelblue;
+    outline-color: green; /* outline = border when element's clicked on */
+    border-radius: 5px;
+    padding: 1em;
+}
+form > input:invalid { /* if invalid input found (e.g. when e-mail's being typed in) */
+    color: red;
+}
+form > textarea { /* squiggly underline in message area */
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+    text-decoration-thickness: 1px;
+}
+
+/* place first two input fields next to eachother */
+form > input:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+form > input:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+/* style the button */
+form > input:last-of-type { /* last input element (= the button) */
+    width: 50%;
+    color: white;
+    background-color: steelblue;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+form > input:last-of-type:hover { /* button hover handling */
+    background-color: green;
+}
+
+/*******************************************************************************
+*                                    FOOTER                                    *
+*******************************************************************************/
+
+/** general **/
+footer#footer { /* this basically handles mainly the black background */
+    display: inline-block;
+    position: absolute; /* absolute positioning so footer background can be stretched over entire page-width */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:black;
+    color: #bfbfbf;
+    width: 100vw;
+    left: 0;
+}
+/* footer is stretched over entire page-width, but we still want the text inside to be aligned with document body */
+footer#footer .content {
+    min-width: 768px;
+    max-width: 1200px; /* set min and max width again */
+    margin-left: auto;
+    margin-right: auto; /* set footer content to be aligned in the middle */
+}
+footer#footer .content a:hover { /* footer hyperlink hover handling */
+    color: white;
+}
+
+/* text of the footer */
+footer#footer .content span:nth-child(1) {
+    display: block; /* set to block so it can be maneuvered */
+    position: absolute;
+    text-align: left;
+}
+/* footer hyperlink */
+footer#footer .content span:nth-child(2) {
+    display: block; /* set to block so it can be maneuvered */
+    text-align: right;
+    color: steelblue;
 }
